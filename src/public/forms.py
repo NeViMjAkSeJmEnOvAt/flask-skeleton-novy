@@ -1,8 +1,8 @@
 import re
 
 from flask_wtf import Form
-from wtforms.fields import BooleanField, TextField, PasswordField, DateTimeField, IntegerField,SelectField
-from wtforms.validators import EqualTo, Email, InputRequired, Length
+from wtforms.fields import BooleanField, TextField, PasswordField, DateTimeField, IntegerField,SelectField,FloatField
+from wtforms.validators import EqualTo, Email, InputRequired, Length,NumberRange
 
 from ..data.models import User, LogUser
 from ..fields import Predicate
@@ -37,10 +37,15 @@ class LogUserForm(Form):
         InputRequired(message="You can't leave this empty")
     ])
     pohlavi = BooleanField('Pohlavi')
-
+# ----------------------------------------------------------------------------------------------------------------------
+class fomrmularTest(Form):
+    a=FloatField("Strana a",validators=[InputRequired(message="vyzadovano"),NumberRange(min=0.01,message="Musi byt vetsi nez 0.01")])
+    b=FloatField("Strana a",validators=[InputRequired(message="vyzadovano"),NumberRange(min=0.01,message="Musi byt vetsi nez 0.01")])
+# ----------------------------------------------------------------------------------------------------------------------
 class secti(Form):
     hodnota1 = IntegerField("vlozHodnotu1", validators=[InputRequired(message="vyzadovano")])
     hodnota2 = IntegerField("vlozHodnotu2", validators=[InputRequired(message="vyzadovano")])
+# ----------------------------------------------------------------------------------------------------------------------
 class masoform(Form):
     typ=SelectField('Typ', choices=[(1, "Hovezi"), (2, "Veprove")], default=2)
 
