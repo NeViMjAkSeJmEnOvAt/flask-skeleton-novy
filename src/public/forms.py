@@ -54,4 +54,4 @@ class ocform(Form):
                                            NumberRange(min=0.01, message="Musi byt vetsi nez 0.01")])
     b = FloatField("Strana a", validators=[InputRequired(message="vyzadovano"),
                                            NumberRange(min=0.01, message="Musi byt vetsi nez 0.01")])
-    obrazec = SelectField("Obrazec ", choices=[(1, "Ctverec a"), (2, "Obdelnik ab"), (3, "Trojuhelnik abc")], default=1)
+    obrazec = SelectField("Obrazec ", choices=[("1", "Ctverec a"), ("2", "Obdelnik ab"), ("3", "Trojuhelnik abc")], default=1)
